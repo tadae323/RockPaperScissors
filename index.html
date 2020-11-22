@@ -78,9 +78,9 @@
           } else if (result.includes("You lose")) {
             ++computerScore;
           }
+          console.log(provideScore(playerScore, computerScore));
         }
 
-        console.log(provideScore(playerScore, computerScore));
         console.log(findWinner(playerScore, computerScore) + " is the winner.");
       }
 
