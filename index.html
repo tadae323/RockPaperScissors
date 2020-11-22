@@ -56,6 +56,14 @@
         }
       }
 
+      function provideScore(playerScore, computerScore) {
+        return (
+          `Player scored ${playerScore} points.` +
+          "\n" +
+          `Computer scored ${computerScore} points.`
+        );
+      }
+
       function game() {
         let playerScore = 0;
         let computerScore = 0;
@@ -71,12 +79,8 @@
             ++computerScore;
           }
         }
-        console.log(
-          `Player scored ${playerScore} points.` +
-            "\n" +
-            `Computer scored ${computerScore} points.`
-        );
 
+        console.log(provideScore(playerScore, computerScore));
         console.log(findWinner(playerScore, computerScore) + " is the winner.");
       }
 
