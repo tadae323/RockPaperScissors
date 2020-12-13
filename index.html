@@ -3,92 +3,36 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="shortcut icon" href="#" />
-
-        <title>Rock Paper Scissors</title>
+        <title>Rock Paper Scissors v. 2</title>
+        <link rel="stylesheet" href="styles/style.css" />
     </head>
     <body>
-        <script>
-            function computerPlay() {
-                let options = ["rock", "paper", "scissors"];
-                let computerSelection = options[Math.floor(Math.random() * 3)];
+        <header>
+            <h1>Rock Paper Scissors</h1>
+        </header>
+        <div class="score-board">
+            <div id="user-label" class="badge">User</div>
+            <div id="computer-label" class="badge">Comp</div>
+            <span id="user-score">0</span>:<span id="computer-score">0</span>
+        </div>
 
-                return computerSelection;
-            }
+        <div class="result">
+            <p>Select your choice</p>
+        </div>
 
-            function playRound(playerSelection, computerSelection) {
-                if (playerSelection === computerSelection) {
-                    return "It's a tie!";
-                } else if (playerSelection === "rock") {
-                    if (computerSelection === "paper") {
-                        return `You lose. Paper beats rock.`;
-                    } else if (computerSelection === "scissors") {
-                        return `You win. Rock beats scissors.`;
-                    }
-                } else if (playerSelection === "paper") {
-                    if (computerSelection === "scissors") {
-                        return `You lose. Scissors beats paper.`;
-                    } else if (computerSelection === "rock") {
-                        return `You win. Paper beats rock.`;
-                    }
-                } else if (playerSelection === "scissors") {
-                    if (computerSelection === "rock") {
-                        return `You lose. Rock beats scissors.`;
-                    } else if (computerSelection === "paper") {
-                        return `You win. Scissors beats paper.`;
-                    }
-                }
-            }
+        <div class="choices">
+            <div class="choice" id="rock">
+                <img src="styles/img/rock.png" alt="rock" />
+            </div>
+            <div class="choice" id="paper">
+                <img src="styles/img/paper.png" alt="paper" />
+            </div>
+            <div class="choice" id="scissors">
+                <img src="styles/img/scissors.png" alt="scissors" />
+            </div>
 
-            function getPlayerSelection() {
-                let playerSelection = prompt(
-                    "Rock, paper, or scissors? \n"
-                ).toLowerCase();
-
-                return playerSelection;
-            }
-
-            function findWinner(playerScore, computerScore) {
-                if (playerScore > computerScore) {
-                    return "Player";
-                } else if (playerScore < computerScore) {
-                    return "Computer";
-                } else {
-                    return "No one";
-                }
-            }
-
-            function provideScore(playerScore, computerScore) {
-                return (
-                    `Player scored ${playerScore} points.` +
-                    "\n" +
-                    `Computer scored ${computerScore} points.`
-                );
-            }
-
-            function game() {
-                let playerScore = 0;
-                let computerScore = 0;
-                let i;
-                for (i = 1; i <= 5; i++) {
-                    const playerSelection = getPlayerSelection();
-                    const computerSelection = computerPlay();
-                    result = playRound(playerSelection, computerSelection);
-                    console.log(result);
-                    if (result.includes("You win")) {
-                        ++playerScore;
-                    } else if (result.includes("You lose")) {
-                        ++computerScore;
-                    }
-                    console.log(provideScore(playerScore, computerScore));
-                }
-
-                console.log(
-                    findWinner(playerScore, computerScore) + " is the winner."
-                );
-            }
-
-            game();
-        </script>
+            <p id="action-message">Make your move.</p>
+        </div>
+        <script src="app.js"></script>
     </body>
 </html>
